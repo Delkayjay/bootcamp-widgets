@@ -97,7 +97,7 @@
                 <input type="text" x-model="itemName" id="item">
             </div>
 
-            <div class="message" x-text="costMessage">
+            <div x-show="message.length > 0" class="message" x-text="costMessage">
                 The result appears here...
             </div>
 
