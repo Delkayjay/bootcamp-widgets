@@ -9,8 +9,8 @@
     <script src="enough-airtime.js" defer></script>
     <script src="greet-widget.js" defer></script>
     <script src="enough-airtime-widget.js" defer></script>
-    <script src="total-cost.js" defer></script>
-    <script src="total-cost-widget.js" defer></script>
+    <script src="total-phone-bill.js" defer></script>
+    <script src="total-phone-bill-widget.js" defer></script>
     <script src="word-game.js" defer></script>
     <script src="word-game-widget.js" defer></script>
     <script src="//unpkg.com/alpinejs" defer></script>
@@ -82,29 +82,12 @@
                 <input type="text" x-model="availableAmount" id="amount">
             </div>
 
-            <div class="message" x-text="airtimeMessage">
+            <div x-show="airtimeMessage.length > 0" class="message" x-text="airtimeMessage">
 
             </div>
 
             <div>
                 <button x-on:click="calculate">Calculate airtime usage</button>
-            </div>
-        </div>
-
-        <div class="widget" x-data="totalCostWidget">
-            <h2>Total Cost</h2>
-
-            <div class="input">
-                <label for="item">Please enter item names: </label>
-                <input type="text" x-model="itemName" id="item">
-            </div>
-
-            <div class="message" x-text="costMessage">
-                The result appears here...
-            </div>
-
-            <div>
-                <button x-on:click="calculateCost">Calculate total cost of items</button>
             </div>
         </div>
 
@@ -116,17 +99,29 @@
                 <input type="text" x-model="longest" id="long">
             </div>
 
-            <div class="input">
-                <label for="short">Type here for shortest word: </label>
-                <input type="text" x-model="shortest" id="short">
-            </div>
-
-            <div class="message" x-text="wordMessage">
+            <div x-show="wordMessage.length > 0" class="message" x-text="wordMessage">
                 The result appears here...
             </div>
 
             <div>
                 <button x-on:click="solveWord">Get word solution</button>
+            </div>
+        </div>
+
+        <div class="widget" x-data="totalPhoneBillWidget">
+            <h2>Total Phone Bill</h2>
+
+            <div class="input">
+                <label for="bill">Enter phone use to get bill: </label>
+                <input type="text" x-model="airtime" id="bill">
+            </div>
+
+            <div x-show="billMessage.length > 0" class="message" x-text="billMessage">
+                The result appears here...
+            </div>
+
+            <div>
+                <button x-on:click="calculateBill">Calculate phone bill</button>
             </div>
         </div>
     </div>
