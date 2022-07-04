@@ -3,13 +3,12 @@ document.addEventListener('alpine:init', () => {
         return {
             itemName : '',
             costMessage : '',
-
             calculateCost() {
-                const message = totalCost(this.itemName);
+                const message = shoppingList(this.itemName);
                 this.costMessage = message;
             }
+        
         }
         
     });
-        
 })

@@ -1,14 +1,12 @@
-function printShoppingList (items) {
-
-  shoppingList = [
-     { itemName : 'Shopping list:'},
-     { itemName : '* Bread @ R11.00'},
-     { itemName : '* Milk @ R7.00'},
-     { itemName : '* Cheese @ R19.50'}
- ];
+function shoppingList(print) {
+  let total = 0
+  
+  for (var i=0; i<print.length; i++){
+    let item = print[i];
+    total = total + item.price
  
- for(var i=0;i<shoppingList.length;i++){
-     var listItem = shoppingList[i];
-     console.log(listItem.itemName);
- }
+    console.log('* ' + item.itemName + ' @ R' + item.price.toFixed(2))
   }
+  console.log (total)
+  return total   
+}

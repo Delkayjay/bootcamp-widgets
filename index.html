@@ -11,6 +11,8 @@
     <script src="enough-airtime-widget.js" defer></script>
     <script src="total-cost.js" defer></script>
     <script src="total-cost-widget.js" defer></script>
+    <script src="word-game.js" defer></script>
+    <script src="word-game-widget.js" defer></script>
     <script src="//unpkg.com/alpinejs" defer></script>
     <style>
         body {
@@ -97,12 +99,34 @@
                 <input type="text" x-model="itemName" id="item">
             </div>
 
-            <div x-show="message.length > 0" class="message" x-text="costMessage">
+            <div class="message" x-text="costMessage">
                 The result appears here...
             </div>
 
             <div>
                 <button x-on:click="calculateCost">Calculate total cost of items</button>
+            </div>
+        </div>
+
+        <div class="widget" x-data="wordGameWidget">
+            <h2>Word Game</h2>
+
+            <div class="input">
+                <label for="long">Type here for longest word: </label>
+                <input type="text" x-model="longest" id="long">
+            </div>
+
+            <div class="input">
+                <label for="short">Type here for shortest word: </label>
+                <input type="text" x-model="shortest" id="short">
+            </div>
+
+            <div class="message" x-text="wordMessage">
+                The result appears here...
+            </div>
+
+            <div>
+                <button x-on:click="solveWord">Get word solution</button>
             </div>
         </div>
     </div>
